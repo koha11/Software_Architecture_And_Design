@@ -1,0 +1,30 @@
+@startuml
+
+' Định nghĩa lớp cha SinhVienNTU
+class SinhVienNTU {
+    - String hoTen
+    - String nganh
+    + SinhVienNTU(hoTen, nganh)
+    + getDiemTB()
+    + String getHocLuc()
+    + void inThongTin()
+}
+
+' Định nghĩa lớp con SinhVienIT
+class SinhVienIT {
+    - float diemJava
+    - float diemCSS
+    - float diemHTML
+}
+
+' Định nghĩa lớp con SinhVienBiz
+class SinhVienBiz {
+    - float diemMarketing
+    - float diemSales
+}
+
+' Quan hệ kế thừa
+SinhVienNTU <|-- SinhVienIT
+SinhVienNTU <|-- SinhVienBiz
+
+@enduml
