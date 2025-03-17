@@ -1,10 +1,10 @@
 package structural.decorator.composite.binary_tree;
 
-public class ChildNode extends Node {
+public class ParentNode extends Node {
 
     Node left, right;
 
-    public ChildNode(int val) {
+    public ParentNode(int val) {
         super(val);
     }
 

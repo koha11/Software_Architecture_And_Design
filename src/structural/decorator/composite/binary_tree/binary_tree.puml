@@ -1,27 +1,22 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+abstract class Node {
+    void Iterate()
+    void addLeft(Node n)
+    void addRight(Node n)
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+class LeafNode
+class ParentNode
+
+'nút lá ke thua giao diện nút
+Node <|-- LeafNode
+
+'nút trong ke thua thực thi giao diện nút
+Node <|-- ParentNode
+
+ParentNode --> Node: "Left"
+ParentNode --> Node: "Right"
 
 @enduml

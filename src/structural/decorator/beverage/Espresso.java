@@ -1,8 +1,8 @@
 package structural.decorator.beverage;
 
-public class Expresso extends Beverage {
+public class Espresso extends Beverage {
 
-    public Expresso(String description) {
+    public Espresso(String description) {
         super(description);
     }
 

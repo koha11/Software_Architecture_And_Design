@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ThayDoiTiGia {
+    void nhanThongBao(float delta)
+}
+
+class DichVuTiGia {
+    void dangKy(ThayDoiTiGia ndt)
+    void huyDangKy(ThayDoiTiGia ndt)
+    void thongBao(float delta)
+}
+
+abstract class NhaDauTu {
+    string ten
+    void dangKy()
+    void huyDangKy()
+}
+
+'implement giao dien ThayDoiTiGia
+ThayDoiTiGia <|.. NhaDauTu
+
+'thiet lap mqh one-to-many
+DichVuTiGia *--> ThayDoiTiGia: "nhaDauTus"
+
+'thiet lap mqh one-to-one
+NhaDauTu --> DichVuTiGia: "dvtg"
+
+'implement giao dien NhaDauTu
+NhaDauTu <|.. NhaDauTuA
+NhaDauTu <|.. NhaDauTuB
+
+@enduml

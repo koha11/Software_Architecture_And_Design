@@ -1,27 +1,36 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class HoaDonHeader {
+    - String maHD, tenKH
+    - Date ngayBan
+    + HoaDonHeader()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class CTHD {
+    - String sanPham
+    - int soLuong, donGia
+    - float chietKhau
+    + CTHD()
 }
+
+class HoaDon {
+    # HoaDon(Builder b)
+}
+
+class Builder {
+    - HoaDonHeader hdHeader
+    - ArrayList<CTHD> cthd
+    + Builder buildHDHeader(String maHD, String ngayBan, String tenKH)
+    + Builder addCTHD(String tenSP, int soLuong, int donGia, int chietKhau)
+    + HoaDon build()
+}
+
+Builder ..> HoaDon
+HoaDon --> HoaDonHeader: hdHeader
+HoaDon *--> "*" CTHD: cthds
+
+Builder --> HoaDonHeader: header
+Builder *--> "*" CTHD: cthds
 
 @enduml
