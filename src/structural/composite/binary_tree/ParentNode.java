@@ -1,4 +1,4 @@
-package structural.decorator.composite.binary_tree;
+package structural.composite.binary_tree;
 
 public class ParentNode extends Node {
 

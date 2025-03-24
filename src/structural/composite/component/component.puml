@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Layout
+class Component
+abstract class UI_Element {
+    String name
+    + {abstract} void build()
+    + {abstract} UI_Element addComponent()
+    + {abstract} void removeComponent()
+}
+
+UI_Element <|-- Layout
+UI_Element <|-- Component
+
+Layout *--> "*" UI_Element: components
+
+Column --|> Layout
+Row --|> Layout
+Stack --|> Layout
+
+Text --|> Component
+Icon --|> Component
+Button --|> Component
+
+@enduml
