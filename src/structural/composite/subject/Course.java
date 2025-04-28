@@ -61,8 +61,6 @@ public class Course extends StudyManagement{
 
     @Override
     public void remove(StudyManagement sm) {
-        if(courses.contains(sm)) {
-            courses.remove(sm);
-        }
+        courses.remove(sm);
     }
 }

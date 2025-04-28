@@ -12,13 +12,14 @@ public class Folder extends AbstractFile {
     }
 
     @Override
-    public String getStringTreeFolder(int tier) {
+    public String getStringTreeFolder() {
         StringBuilder res = new StringBuilder();
 
-        res.append(this.name);
+        res.append(this.prefix).append(this.name);
 
         for (var file : files) {
-            res.append("\n").append("\t".repeat(tier)).append(file.getStringTreeFolder(tier+1));
+            file.prefix += "\t";
+            res.append("\n").append(file.getStringTreeFolder());
         }
 
         return res.toString();

@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class ObjectDB<T> {
+    - List<T> list
+    + {abstract} int getId(T t)
+    + T findById(int id)
+    + void add(T t)
+    + void update(T t)
+    + void delete(T t)
+}
+
+class StudentDB<StudentDB>
+{
+    + int getId(Student student)
+}
+
+class SubjectDB<SubjectDB>
+{
+    + int getId(Subject subject)
+}
+
+ObjectDB <|-- StudentDB
+ObjectDB <|-- SubjectDB
+
+@enduml

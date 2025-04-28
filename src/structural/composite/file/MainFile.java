@@ -33,9 +33,9 @@ public class MainFile {
         folder5.addFile(file6)
                 .addFile(file7);
 
-        System.out.println(folder1.getStringTreeFolder(1));
+        System.out.println(folder1.getStringTreeFolder());
         System.out.println(file7.getPath());
 
-        System.out.println(folder4.getStringTreeFolder(1));
+        System.out.println(folder4.getStringTreeFolder());
     }
 }

@@ -6,7 +6,7 @@ public class File extends AbstractFile {
     }
 
     @Override
-    public String getStringTreeFolder(int tier) {
+    public String getStringTreeFolder() {
         return name;
     }
 

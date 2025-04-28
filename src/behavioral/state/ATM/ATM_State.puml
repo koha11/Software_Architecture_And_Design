@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+'https://plantuml.com/class-diagram
+class ATM{
+    +soTien:Int
+    +void setState(ATM_state)
+    +void naptien(int soTien)
+    +void ruttien
+}
+interface ATM_state{
+    +void xulynaptien(int soTien, ATM context)
+    +void xulyruttien( ATM context)
+}
+class Sansang{
+}
+class Hanche{
+}
+class Hettien{
+}
+
+note right of ATM_state
+phương thức xuLyNaptien ngoai tham số soTien cua phương thúc
+Naptien của ATM nó còn phải có tham số context
+end note
+ATM-->ATM_state:state
+ATM_state<|..Sansang
+ATM_state<|..Hanche
+ATM_state<|..Hettien
+@enduml
+
+@enduml

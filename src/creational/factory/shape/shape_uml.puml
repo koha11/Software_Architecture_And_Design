@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Shape{
+    - String frame, paper, brush
+    + {abstract} String draw()
+}
+
+class Circle
+class Rectangle
+class Triangle
+
+class ShapeFactory {
+    - {static} Map<ShapeType,Shape> instances
+    + {static} Shape getInstance(ShapeType tag)
+    - Shape createShape(ShapeType t)
+}
+
+enum ShapeType
+
+Shape <|-- Circle
+Shape <|-- Rectangle
+Shape <|-- Triangle
+
+ShapeFactory ..> Shape
+
+@enduml

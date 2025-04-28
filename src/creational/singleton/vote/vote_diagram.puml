@@ -6,7 +6,7 @@ class Election {
     - int countBidenVote
     - Election()
     + {static} Election getInstance()
-    void vote(Candidate c)
+    + void vote(Candidate c)
     + void inKQ()
 }
 
@@ -22,6 +22,8 @@ class User {
 class MainA4
 
 User ..> Election
+User "votedUsers" <--* Election
 MainA4 --> User
+
 
 @enduml
