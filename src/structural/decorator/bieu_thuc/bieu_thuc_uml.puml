@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class BieuThuc
+{
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class BieuThucDonGian
+{
+    - float toanHang
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class BieuThucDecorator {
+    + float giaTri()
+    + String bieuThuc()
+}
+
+class Cong
+class Tru
+class Nhan
+class Chia
+
+
+BieuThuc <|-- BieuThucDonGian
+BieuThuc <|-- BieuThucDecorator
+BieuThuc <--- BieuThucDecorator: bieuThuc
+BieuThucDecorator <|-- Cong
+BieuThucDecorator <|-- Tru
+BieuThucDecorator <|-- Nhan
+BieuThucDecorator <|-- Chia
+
+@enduml
