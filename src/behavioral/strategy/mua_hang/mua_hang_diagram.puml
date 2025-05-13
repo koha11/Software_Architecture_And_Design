@@ -1,27 +1,34 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class GioHang {
+    + void thanhToan();
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+interface IThanhToan {
+    float thanhToan(float soTien)
 }
+
+class COD
+class AirPlay
+
+interface IKhuyenMai {
+    float thanhToan(float soTien)
+}
+
+class KhuyenMai_10_Max100
+
+class MatHang {
+    - String ten
+    - float gia
+    - int sl
+}
+
+IThanhToan <|.. COD
+IThanhToan <|.. AirPlay
+IKhuyenMai <|.. KhuyenMai_10_Max100
+MatHang <--* GioHang: dsmh
+IKhuyenMai <-- GioHang: km
+IThanhToan <-- GioHang: httt
 
 @enduml
