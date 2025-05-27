@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class News {
+    - int id
+    - string content
+}
+
+class Topic {
+    - int count
+    + void attach(TopicListener member)
+    + void detach(TopicListener member)
+    + void add(String content)
+    + void update(News n)
+}
+
+interface TopicListener {
+    void updateListen(News n)
+    void insertListen(News n)
+}
+
+class Member
+class MemberA {
+}
+class MemberB
+
+TopicListener <|.. Member
+Topic *--> TopicListener: listeners
+Member --> Topic: topic
+
+Member <|-- MemberA
+Member <|-- MemberB
+
+News <--* Topic: news
+
+MemberB *--> News: news
+
+@enduml

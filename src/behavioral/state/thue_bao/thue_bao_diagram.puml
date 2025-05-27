@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ThueBao {
+    - int soDu
+    + void setState(ITrangThaiTieuDung state)
+    + void napTien(int soTien)
+    + void goiDien(int soPhut)
+    + void display()
+}
+
+interface ITrangThaiTieuDung {
+    + void xuLyNapTien(int soTien, ThueBao thueBao)
+    + void xuLyGoiDien(int soPhut, ThueBao thueBao)
+    + void handleDisplay(ThueBao tb)
+}
+
+abstract class TienCuoc {
+    # int min, max, tienCuoc
+    + {abstract} BacThongThuong bacKeTiep(BacThongThuong bacKeTiep)
+    + {abstract} int tinhTienCuoc(int minute)
+}
+
+class BacCaoNhat {}
+
+class BacThongThuong {}
+
+class NormalState
+class SilverState
+class GoldState
+
+ThueBao --> ITrangThaiTieuDung: state
+ITrangThaiTieuDung <|.. NormalState
+ITrangThaiTieuDung <|.. SilverState
+ITrangThaiTieuDung <|.. GoldState
+
+BacThongThuong <|-- NormalState
+BacThongThuong <|-- SilverState
+BacCaoNhat <|-- GoldState
+
+TienCuoc <|-- BacThongThuong
+TienCuoc <|-- BacCaoNhat
+BacThongThuong -->  TienCuoc: keTiep
+
+
+@enduml
