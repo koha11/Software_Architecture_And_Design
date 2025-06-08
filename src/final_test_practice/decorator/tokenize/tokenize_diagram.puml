@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ITokenize
+class TachTu
+class Tokenize
+class LoaiBoTuDung
+class LoaiBoDauCau
+
+@enduml

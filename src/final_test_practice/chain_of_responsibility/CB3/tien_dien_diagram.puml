@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class TinhTienDien {
+    # String tenBac
+    # int giaDien, min, max
+    + {abstract} TinhTienDien setKeTiep(TinhTienDien keTiep)
+    + {abstract} int tinhTien (int soKW)
+}
+class MucThongThuong
+class MucCaoNhat
+
+TinhTienDien <|-- MucCaoNhat
+TinhTienDien <|-- MucThongThuong
+TinhTienDien <--- MucThongThuong: keTiep
+
+@enduml

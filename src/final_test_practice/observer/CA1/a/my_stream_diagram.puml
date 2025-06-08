@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MyStream<T> {
+    + void addEvent(T t)
+    + void addListener(MyStreamListener<T> listener)
+    + void removeListener()
+}
+
+interface MyStreamListener<T> {
+    void listen(T t)
+}
+
+class Client {
+}
+
+class DataAccess {
+    + void addMH(MonHoc mh)
+    + void updateMH(MonHoc mh)
+    + void deleteMH(MonHoc mh)
+}
+
+class MonHoc {
+    - String maMH
+    - String tenMH
+}
+
+MyStream --> MyStreamListener: listener
+DataAccess --> MyStream: stream
+MyStream <-- Client: stream
+MyStreamListener <|.. Client
+DataAccess *--> MonHoc: dsmh
+
+
+
+@enduml

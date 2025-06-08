@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Widget {
+    + {abstract} String  build()
+}
+
+class LayoutWidget
+class Center
+class Container
+class Row
+
+class ComponentWidget
+class Text
+class Button
+
+Widget <|-- ComponentWidget
+Widget <|-- LayoutWidget
+ComponentWidget ---> Widget: widget
+
+LayoutWidget <|-- Center
+LayoutWidget <|-- Container
+LayoutWidget <|-- Row
+
+ComponentWidget <|-- Text
+ComponentWidget <|-- Button
+
+@enduml

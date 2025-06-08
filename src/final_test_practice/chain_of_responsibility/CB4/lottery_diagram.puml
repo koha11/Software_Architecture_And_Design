@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class LotteryChecker {
+    # String prizeName
+    # List<String> winningSet
+    + String check(String lotteryNumber)
+    + LotteryChecker setNextPrize(LotteryChecker lottery)
+}
+class LotteryPrize
+class EighthPrize
+
+LotteryChecker <|-- LotteryPrize
+LotteryChecker <|-- EighthPrize
+LotteryChecker <--- LotteryPrize: nextPrice
+
+
+@enduml

@@ -1,29 +1,29 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-interface ImageProcess {
-    void process
+abstract class ImageProcess {
+    + void process()
 }
 
 class BasicProcess {
-    String path;
+    - String path
 }
 
 class ImageDecorator {
-
+    # String value
 }
 
 class BorderDecorator
 class WatermarkDecorator
 class FilterDecorator
 
-ImageProcess <|.. BasicProcess
-ImageProcess <|.. ImageDecorator
-ImageProcess <--- ImageDecorator: image
+ImageProcess <|-- ImageDecorator
+ImageProcess <|-- BasicProcess
 
 ImageDecorator <|-- BorderDecorator
 ImageDecorator <|-- WatermarkDecorator
 ImageDecorator <|-- FilterDecorator
 
+ImageProcess <--- ImageDecorator: image
 
 @enduml

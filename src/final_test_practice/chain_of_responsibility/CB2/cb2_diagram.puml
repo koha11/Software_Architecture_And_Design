@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class DuyetVay {
+    # String ten
+    # int hanMuc
+    # DuyetVay tiepTheo
+    + DuyetVay setTiepTheo(DuyetVay tiepTheo)
+    + void duyetKhoanVay(HoSoVay hsv)
+}
+class NhanVienDuyet
+class ChuTichDuyet
+
+class HoSoVay {
+    - String thongTin
+    - int soTienVay
+}
+
+DuyetVay <|-- NhanVienDuyet
+DuyetVay <|-- ChuTichDuyet
+DuyetVay <--- NhanVienDuyet: tiepTheo
+HoSoVay <-- DuyetVay
+
+@enduml

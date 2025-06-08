@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class DichVuTiGia {
+    - float tiGia;
+    + void addListener(TiGiaListener l)
+    + void removeListener(TiGiaListener l)
+}
+
+abstract class TiGiaListener {
+    - String ten
+    + {abstract} void listen(float tiGia)
+    + void dangKy(DichVuTiGia dvtg)
+    + void huyDangKy()
+}
+class NhaDauTu {
+
+}
+
+'class TiGia {
+'
+'}
+
+TiGiaListener <|-- NhaDauTu
+DichVuTiGia *--> TiGiaListener: listeners
+NhaDauTu --> DichVuTiGia: dvtg
+'DichVuTiGia --> TiGia: tiGia
+
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Subscriber {
+    # int balance
+    + void topUp(int money)
+    + void makeCall(int minutes)
+    + void printInfo()
+    + void setState(SubscriptionState state)
+}
+
+abstract class SubscriptionState {
+    int callCharges
+    int maxBalance
+    void handleTopUp(int money, Subscriber s)
+    void handleMakeCall(int minutes, Subscriber s)
+    void handlePrintInfo(Subscription s)
+}
+
+class NormalState
+class SilverState
+class GoldState
+
+SubscriptionState <|-- NormalState
+SubscriptionState <|-- SilverState
+SubscriptionState <|-- GoldState
+
+Subscriber --> SubscriptionState: state
+SubscriptionState --> CallChargesCalc: callChargesCalc
+
+
+abstract class CallChargesCalc {
+    # int money;
+    + int calc(int balance, int minutes)
+    + CallChargesCalc setNext(CallChargesCalc c);
+}
+
+class HigherCallCharges
+class NormalCallCharge
+
+CallChargesCalc <-- HigherCallCharges: next
+CallChargesCalc <|-- HigherCallCharges
+CallChargesCalc <|-- NormalCallCharge
+
+@enduml
