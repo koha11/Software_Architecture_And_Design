@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Beverage {
+    - String description
+    + {abstract} int cost()
+    + {abstract} String description()
+}
+class Espresso
+class CondimentDecorator
+class Milk
+class Mocha
+class Soy
+
+Beverage <|.. Espresso
+Beverage <|.. CondimentDecorator
+
+CondimentDecorator <|-- Milk
+CondimentDecorator <|-- Mocha
+CondimentDecorator <|-- Soy
+CondimentDecorator --> Beverage: beverage
+
+@enduml

@@ -19,8 +19,13 @@ public abstract class SubscriptionState
 
     public void handleMakeCall(int minutes, Subscriber s) {
         int total = calcCallCharges.calc(s.balance, minutes);
-
-        System.out.println("Da goi " + minutes + " phut ton " + total);
+        if(s.balance < total)
+            System.out.println("So tien trong tai khoan cua KH ko du");
+        else
+        {
+            s.balance-= total;
+            System.out.println("Da goi " + minutes + " phut ton " + total);
+        }
     }
 
     public abstract void handlePrintInfo(Subscriber s);

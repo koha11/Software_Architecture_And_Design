@@ -4,7 +4,7 @@ public class MainSubscription {
     public static void main(String[] args) {
         Subscriber subscriber = new Subscriber();
 
-        subscriber.topUp(200_000);
+        subscriber.topUp(190_000);
         subscriber.makeCall(100);
     }
 }

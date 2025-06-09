@@ -7,7 +7,7 @@ public class NormalCallCharges extends CallChargesCalc{
 
     @Override
     public int calc(int balance, int minutes) {
-        System.out.println("so tien o bac thap nhat: " + (minutes * chargesPerMinutes));
+        System.out.println("so tien o bac thap nhat: " + (minutes * chargesPerMinutes) + " va duoc " + minutes + " phut");
         return minutes * chargesPerMinutes;
     }
 
